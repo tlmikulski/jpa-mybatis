@@ -1,5 +1,6 @@
 package pl.training.helloworld;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -10,6 +11,7 @@ import java.util.Objects;
 public class Account {
     @Id
     private Long id;
+    @Column(name="account_number", length = 26, unique = true)
     private String number;
     private long balance;
 
