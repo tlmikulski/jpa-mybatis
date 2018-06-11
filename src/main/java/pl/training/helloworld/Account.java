@@ -1,9 +1,6 @@
 package pl.training.helloworld;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Table(name="accounts")
@@ -14,6 +11,8 @@ public class Account {
     @Column(name="account_number", length = 26, unique = true)
     private String number;
     private long balance;
+    @Enumerated(EnumType.ORDINAL)
+    private AccountType type;
 
     public Long getId() {
         return id;
@@ -37,6 +36,14 @@ public class Account {
 
     public void setBalance(long balance) {
         this.balance = balance;
+    }
+
+    public AccountType getType() {
+        return type;
+    }
+
+    public void setType(AccountType type) {
+        this.type = type;
     }
 
     @Override

@@ -18,6 +18,7 @@ public class Application {
         account.setId(1L);
         account.setNumber("0000000001");
         account.setBalance(1_000);
+        account.setType(AccountType.STANDARD);
         entityManager.persist(account);
 
         transaction.commit();
