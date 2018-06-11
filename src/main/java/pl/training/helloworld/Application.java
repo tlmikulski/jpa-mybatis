@@ -15,37 +15,40 @@ public class Application {
 
         transaction.begin();
 
-//        Account account = new Account();
-//        account.setNumber("0000000001");
-//        account.setBalance(1_000);
-//        account.setType(AccountType.STANDARD);
-//        account.setCreated(new Date());
-//        entityManager.persist(account);
-//
-//        Client client = new Client();
-//
-//        Info info = new Info();
-//        info.setEmail("user@example.org");
-//        info.setPhone("123456789");
-//        client.setInfo(info);
-//
-//        Address address = new Address();
-//        address.setBaseInfo("ul. Testowa");
-//        address.setPostalCode("05-400");
-//        address.setCity("Wwa");
-//        address.setCountry("EN");
-//
-//        client.getAddresses().add(address);
-//        client.getAccounts().add(account);
-//        account.getClients().add(client);
-//
-//        entityManager.persist(client);
+        Account account = new Account();
+        account.setNumber("0000000001");
+        account.setBalance(1_000);
+        account.setType(AccountType.STANDARD);
+        account.setCreated(new Date());
+        entityManager.persist(account);
 
+        Client client = new Client();
 
-//        Account readAccount = entityManager.find(Account.class, 1L);
+        Info info = new Info();
+        info.setEmail("user@example.org");
+        info.setPhone("123456789");
+        client.setInfo(info);
+
+        Address address = new Address();
+        address.setBaseInfo("ul. Testowa");
+        address.setPostalCode("05-400");
+        address.setCity("Wwa");
+        address.setCountry("EN");
+
+        client.getAddresses().add(address);
+        client.getAccounts().add(account);
+        account.getClients().add(client);
+
+        BusinessClient businessClient = new BusinessClient();
+        businessClient.setTin("1112223344");
+        entityManager.persist(account);
+        entityManager.persist(client);
+        entityManager.persist(businessClient);
+
+        Account readAccount = entityManager.find(Account.class, 1L);
         Client readClient = entityManager.find(Client.class, 2L);
         System.out.println("Loaded");
-//        System.out.println(readAccount);
+        System.out.println(readAccount);
 
         transaction.commit();
 
