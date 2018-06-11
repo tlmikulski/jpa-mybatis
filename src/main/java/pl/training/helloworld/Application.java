@@ -15,12 +15,15 @@ public class Application {
         transaction.begin();
 
         Account account = new Account();
-        account.setId(2L);
-        account.setNumber("0000000002");
-        account.setBalance(2_000);
+        account.setId(1L);
+        account.setNumber("0000000001");
+        account.setBalance(1_000);
         entityManager.persist(account);
 
         transaction.commit();
+
+        Account readAccount = entityManager.find(Account.class, 1L);
+        System.out.print(readAccount.toString());
 
         entityManager.close();
         entityManagerFactory.close();
