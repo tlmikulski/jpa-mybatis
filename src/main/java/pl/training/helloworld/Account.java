@@ -3,10 +3,14 @@ package pl.training.helloworld;
 import javax.persistence.*;
 import java.util.Objects;
 
+@TableGenerator(name="Custom_generator",
+table="sequence",
+pkColumnName = "name",
+valueColumnName = "value",allocationSize = 10)
 @Table(name="accounts")
 @Entity
 public class Account {
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "Custom_generator")
     @Id
     private Long id;
     @Column(name="account_number", length = 26, unique = true)
