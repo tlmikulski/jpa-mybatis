@@ -6,6 +6,7 @@ import java.util.Objects;
 @Table(name="accounts")
 @Entity
 public class Account {
+    @GeneratedValue
     @Id
     private Long id;
     @Column(name="account_number", length = 26, unique = true)
@@ -16,10 +17,6 @@ public class Account {
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getNumber() {

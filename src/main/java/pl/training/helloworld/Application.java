@@ -15,7 +15,6 @@ public class Application {
         transaction.begin();
 
         Account account = new Account();
-        account.setId(1L);
         account.setNumber("0000000001");
         account.setBalance(1_000);
         account.setType(AccountType.STANDARD);
