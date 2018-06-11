@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @DiscriminatorColumn(name = "discriminator", discriminatorType = DiscriminatorType.INTEGER)
 @EqualsAndHashCode(exclude = "accounts")
 @ToString(exclude = "accounts")
