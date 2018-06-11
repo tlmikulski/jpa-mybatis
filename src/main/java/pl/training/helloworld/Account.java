@@ -2,8 +2,10 @@ package pl.training.helloworld;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
+@Table(name="accounts")
 @Entity
 public class Account {
     @Id
